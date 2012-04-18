@@ -1,5 +1,6 @@
 import re
 import sys
+import types
 from django.utils.datastructures import SortedDict
 from django.conf import settings
 from django.http import HttpResponse
@@ -19,6 +20,9 @@ def jsurls(request):
         if isinstance(module_name, basestring):
             __import__(module_name)
             root_urls = sys.modules[module_name]
+            patterns = root_urls.urlpatterns
+        elif isinstance(module_name, types.ModuleType):
+            root_urls = module_name
             patterns = root_urls.urlpatterns
         else:
             root_urls = module_name
