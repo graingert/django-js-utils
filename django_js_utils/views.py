@@ -53,10 +53,10 @@ def jsurls(request):
     js_patterns = SortedDict()
     handle_url_module(js_patterns, settings.ROOT_URLCONF)
 
-    from django.template.loader import get_template
-
-    response = HttpResponse(mimetype='text/javascript')
-    response.write('django_js_utils_urlconf = ');
-    json.dump(js_patterns, response)
-    return response
+    return HttpResponse(
+        'django_js_utils_urlconf = {json}'.format(
+            json = json.dump(js_patterns, response)
+        ),
+        content_type="application/javascript"
+    )
 
