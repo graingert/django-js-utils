@@ -19,7 +19,7 @@ setup(
     description=DESCRIPTION,
     long_description=readme_text,
     install_requires=['django'],
-    package_data={'django_js_utils': ['static/django_js_utils.js']},
+    package_data={'django_js_utils': ['static/django_js_utils.js'], '':['README.rst']},
     classifiers=[
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
