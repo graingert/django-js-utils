@@ -14,10 +14,12 @@ setup(
     name='django-js-utils',
     author='Vebjorn Ljosa',
     packages=['django_js_utils'],
-    version='0.0.1dev',
+    version='0.0.2dev',
     description=DESCRIPTION,
     long_description=readme_text,
     install_requires=['django'],
+    package_data={'django_js_utils': ['static/django_js_utils.js']},
+    include_package_data=True,
     classifiers=[
         'License :: OSI Approved :: BSD License',
         'Programming Language :: Python',
