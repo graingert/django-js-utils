@@ -22,23 +22,26 @@ A view jsurls to generate a list of all of your Django urls.
 
 Installation and usage
 **********************
+1. Install the application from pip::
 
-1. Add django_js_utils to your python path and add the django_js_utils application to your INSTALLED_APPS
+    pip install django_js_utils
 
-2. Add the jsurls view to your URL patterns, e.g.,
+2. Add django_js_utils to your python path and add the django_js_utils application to your INSTALLED_APPS
+
+3. Add the jsurls view to your URL patterns, e.g.,
 
 ::
 
     (r'^jsurls.js$', 'django_js_utils.views.jsurls', {}, 'jsurls'),
 
-3. Load the static django_js_utils.js (which contains the reverse function) and the dynamically-generated jsurls.js from every web page where you plan to use the reverse function (likely just your base.html template). Example:
+4. Load the static django_js_utils.js (which contains the reverse function) and the dynamically-generated jsurls.js from every web page where you plan to use the reverse function (likely just your base.html template). Example:
 
 ::
 
     <script type="text/javascript" src="{% staticfile 'django_js_utils.js' %}"></script>
     <script type="text/javascript" src="{% url jsurls %}"></script>
 
-4. In your JavaScript code, reverse URLs as follows:
+5. In your JavaScript code, reverse URLs as follows:
 
 ::
 
